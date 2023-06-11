@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.gallery {
+  flex: 1;
+}
+
+.load-more {
+  align-self: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Розміщуємо по 4 колонки в ряду */
+  grid-gap: 20px; /* Відступ між картками */
+}
+
+.photo-card {
+  /* Стилі для картки зображення */
+  /* Налаштування ширини і висоти картки */
+  width: 100%;
+  height: 100%;
+}
+
+.photo-card img {
+  /* Стилі для зображення в картці */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Заповнюємо зображення весь розмір блока */
+}
