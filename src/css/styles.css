@@ -1,33 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  color: rgb(0, 0, 0);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+.search-container {
+  width: 100%;
+  padding: 20px;
+  position: fixed;
+  background-color: #7cace3;
+  z-index: 1;
+}
+
+.search-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-form input {
+  width: 20%;
+  border-radius: 4px 0 0 4px;
+  border: none;
+  outline: none;
+  background-color: rgb(248, 248, 248);
+  padding: 8px 10px;
+}
+
+.search-form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: rgb(200, 200, 200);
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.search-form button:hover,
+.search-form button:focus {
+  background-color: rgb(180, 180, 180);
+  transition: all 0.3s;
+}
+
+.gallery-container {
+  background-color: #b1c0df;
+  padding: 20px;
+}
+
+.gallery,
+.info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery {
+  margin-left: -20px;
+  padding-top: 60px;
+  justify-content: center;
+}
+
+.gallery__link {
+  margin-top: 20px;
+  margin-left: 20px;
+  min-width: 320px;
+  flex-basis: calc((100% - 80px) / 4);
+  border: 2px solid #00000049;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.gallery__link:hover,
+.gallery__link:focus {
+  transform: scale(1.05);
+}
+
+.gallery-item {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  justify-content: space-evenly;
 }
 
-.gallery {
-  flex: 1;
+.gallery-item__img {
+  display: block;
+  height: 30vh;
+  object-fit: cover;
 }
 
-.load-more {
-  align-self: center;
+.info {
+  padding: 10px;
+  justify-content: space-around;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Розміщуємо по 4 колонки в ряду */
-  grid-gap: 20px; /* Відступ між картками */
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #242424;
 }
 
-.photo-card {
-  /* Стилі для картки зображення */
-  /* Налаштування ширини і висоти картки */
-  width: 100%;
-  height: 100%;
+.info-item:not(:first-child) {
+  margin-left: 5px;
 }
 
-.photo-card img {
-  /* Стилі для зображення в картці */
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Заповнюємо зображення весь розмір блока */
+.btn-load-more.is-hidden {
+  display: none;
+}
+
+.btn-load-more {
+  display: block;
+  margin: 25px auto 0 auto;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #495776;
 }

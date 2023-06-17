@@ -73,7 +73,9 @@ async function handleLoadMore() {
     if (page >= totalPages) {
       loadMoreBtn.classList.add('is-hidden');
       await delay(500);
-      alertEndOfSearch();
+      Notiflix.Notify.failure(
+        "We're sorry, but you've reached the end of search results."
+      );
     }
   } catch (error) {
     console.log(error);
@@ -113,9 +115,6 @@ function renderImages(images) {
   gallery.insertAdjacentHTML('beforeend', markup);
 }
 
-function alertNoEmptySearch() {
-  Notiflix.Notify.warning('Please enter a search query.');
-}
 function alertImagesFound(data) {
   const { totalHits } = data;
   Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
@@ -123,18 +122,6 @@ function alertImagesFound(data) {
 function alertNoEmptySearch() {
   Notiflix.Notify.failure(
     'The search bar cannot be empty. Please type any criteria in the search bar.'
-  );
-}
-
-function displayNoResultsAlert() {
-  Notiflix.Notify.failure(
-    'Sorry, there are no images matching your search query. Please try again.'
-  );
-}
-
-function alertEndOfSearch() {
-  Notiflix.Notify.failure(
-    "We're sorry, but you've reached the end of search results."
   );
 }
 
