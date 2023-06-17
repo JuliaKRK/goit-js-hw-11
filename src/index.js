@@ -25,7 +25,9 @@ async function handleFormSubmit(event) {
   loadMoreBtn.classList.add('is-hidden');
 
   if (query === '') {
-    alertNoEmptySearch();
+    Notiflix.Notify.failure(
+      'The search bar cannot be empty. Please type any criteria in the search bar.'
+    );
     return;
   }
 
@@ -118,11 +120,6 @@ function renderImages(images) {
 function alertImagesFound(data) {
   const { totalHits } = data;
   Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
-}
-function alertNoEmptySearch() {
-  Notiflix.Notify.failure(
-    'The search bar cannot be empty. Please type any criteria in the search bar.'
-  );
 }
 
 function delay(ms) {
